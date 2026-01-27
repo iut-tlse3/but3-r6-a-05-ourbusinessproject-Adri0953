@@ -1,8 +1,8 @@
 
 # Our Business Project - A spring boot / JPA project
 
-### NOM : DOE
-### Prénom : John
+### NOM : ANDRIOAIE
+### Prénom : Adrian
 ### Groupe de TP : 
 - [x] 1
 
