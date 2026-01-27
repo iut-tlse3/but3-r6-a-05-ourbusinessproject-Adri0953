@@ -22,6 +22,10 @@ public class Enterprise {
 
     public Enterprise() {}
 
+    public Long getId() {
+        return this.id;
+    }
+
     /**
      * Set the name
      * @param name .

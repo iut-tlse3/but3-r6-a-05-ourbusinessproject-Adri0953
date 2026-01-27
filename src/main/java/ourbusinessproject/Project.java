@@ -16,6 +16,9 @@ public class Project {
 
     public Project () {}
 
+    public Long getId() {
+        return this.id;
+    }
     /**
      * Set the title
      * @param title
