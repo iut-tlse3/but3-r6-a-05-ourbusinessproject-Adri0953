@@ -11,10 +11,18 @@ public class Project {
 
     public Project () {}
 
+    /**
+     * Set the title
+     * @param title
+     */
     public void setTitle(String title) {
             this.title = title;
     }
 
+    /**
+     * Set the description
+     * @param description
+     */
     public void setDescription(String description) {
             this.description = description;
     }
