@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
@@ -20,17 +22,18 @@ class EnterpriseProjectServiceTest {
     private Project project;
     private Enterprise enterprise;
 
-    private final Long anId = 1L;
+    private Long anId = 1L;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
         enterpriseProjectService = new EnterpriseProjectService(entityManager);
     }
 
     @Test
     public void testEntityManagerPersistAProjectWhenANewProjectIsCreated() {
         // when: trying to create a project
-        project = enterpriseProjectService.newProject("a title", "a description");
+        Enterprise enterprise1 = Mockito.mock(Enterprise.class);
+        project = enterpriseProjectService.newProject("a title", "a description", enterprise1);
         // then: the service delegates the entity manager to persist the project
         verify(enterpriseProjectService.getEntityManager()).persist(project);
         // and: the service asks the entity manager to synchronize with the database
@@ -41,7 +44,7 @@ class EnterpriseProjectServiceTest {
     public void testEntityManagerPersistAnEnterpriseWhenEnterpriseIsSaved() {
         // when: trying to create an enterprise
         enterprise = enterpriseProjectService.newEnterprise(
-                "a nae",
+                "a name",
                 "a description",
                 "a contact name",
                 "acontact@email.com"

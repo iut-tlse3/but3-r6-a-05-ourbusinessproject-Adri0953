@@ -14,6 +14,10 @@ public class Project {
     private String title;
     private String description;
 
+    @NotNull
+    @ManyToOne
+    private Enterprise enterprise;
+
     public Project () {}
 
     public Long getId() {
@@ -33,5 +37,17 @@ public class Project {
      */
     public void setDescription(String description) {
             this.description = description;
+    }
+
+    /**
+     * Set the entreprise
+     * @param enterprise
+     */
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+
+    public Enterprise getEnterprise() {
+        return this.enterprise;
     }
 }
