@@ -48,7 +48,19 @@ public class Project {
         this.enterprise = enterprise;
     }
 
+    /**
+     *
+     * @return the enterprise of the project
+     */
     public Enterprise getEnterprise() {
         return this.enterprise;
+    }
+
+    /**
+     *
+     * @return the title of the project
+     */
+    public String getTitle() {
+        return this.title;
     }
 }
