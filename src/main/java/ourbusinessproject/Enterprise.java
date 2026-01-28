@@ -2,6 +2,9 @@ package ourbusinessproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 @Entity
 public class Enterprise {
     @Id
@@ -19,6 +22,9 @@ public class Enterprise {
 
     @NotBlank @Email
     private String contactEmail;
+
+    @OneToMany(mappedBy = "enterprise")
+    private Collection<Project> projects;
 
     public Enterprise() {}
 
@@ -58,6 +64,23 @@ public class Enterprise {
         this.contactEmail = contactEmail;
     }
 
+    /**
+     *
+     * @return la liste des projets de l'entreprise
+     */
+    public Collection<Project> getProjects() {
+        return projects;
+    }
 
+    /**
+     * Add a project to the collection of projects
+     * @param project
+     */
+    public void addProject(Project project) {
+        if (this.projects == null) {
+            this.projects = new HashSet<>();
+        }
+        projects.add(project);
+    }
 }
 
