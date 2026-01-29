@@ -2,6 +2,7 @@ package ourbusinessproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+import javax.xml.namespace.QName;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -81,6 +82,10 @@ public class Enterprise {
             this.projects = new HashSet<>();
         }
         projects.add(project);
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
 
