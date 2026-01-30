@@ -1,4 +1,5 @@
 package ourbusinessproject;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -69,6 +70,7 @@ public class Enterprise {
      *
      * @return la liste des projets de l'entreprise
      */
+    @JsonIgnore
     public Collection<Project> getProjects() {
         return projects;
     }
