@@ -25,6 +25,9 @@ public class InitializationService {
      * Initialization of the initial list of projects
      */
     @Transactional
+    // Si jamais on met un projet à null, puisque lorsqu'on fait la requête pour récupérer tous les projets
+    // seulement deux projets sont correctes sur trois, avec un projet à null admettons, Spring voit qu'1 requête a foiré
+    // donc il ne retourne rien, et rollback à l'état initial.
     public void initProjects() {
         initEnterprise();
         project1E1 = enterpriseProjectService.newProject("p1E1","P1E1 desc",enterprise1);

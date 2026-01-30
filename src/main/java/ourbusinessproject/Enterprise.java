@@ -26,6 +26,7 @@ public class Enterprise {
     private String contactEmail;
 
     @OneToMany(mappedBy = "enterprise")
+    @JsonIgnore
     private Collection<Project> projects;
 
     public Enterprise() {}
@@ -70,7 +71,6 @@ public class Enterprise {
      *
      * @return la liste des projets de l'entreprise
      */
-    @JsonIgnore
     public Collection<Project> getProjects() {
         return projects;
     }

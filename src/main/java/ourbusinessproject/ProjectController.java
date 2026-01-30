@@ -17,7 +17,7 @@ public class ProjectController {
         this.enterpriseProjectService = enterpriseProjectService;
     }
 
-    @RequestMapping(value = "/api/projects", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/projects")
     public List<Project> findAllProjectsWithEnterprises() {
         return this.enterpriseProjectService.findAllProjects();
     }
